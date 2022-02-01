@@ -64,7 +64,7 @@ chmod +x pacman.sh
 mv pacman.sh ~/.local/share/
 echo '$HOME/.local/share/pacman.sh' >> ~/.zshrc
 
-echo "Installing: Salwyrr Launcher"
+echo "Installing: Salwyrr Launcher..."
 wget https://www.salwyrr.com/linux/install_salwyrr_launcher.sh -P ~/ && chmod +x ~/install_salwyrr_launcher.sh && ~/./install_salwyrr_launcher.sh
 
 cp -r .config ~/
