@@ -1,0 +1,7 @@
+[user]
+	email = 69204789+vitogiu1@users.noreply.github.com
+	name = vitogiu1
+[pull]
+    rebase = true
+[init]
+    defaultBranch = main
