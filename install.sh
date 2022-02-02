@@ -21,6 +21,7 @@ PACKAGES=(
     'yarn'
     'jre8-openjdk'
     'w3m'
+    'archlinux-keyring'
 )
 
 for PACKAGE in "${PACKAGES[@]}"; do
