@@ -1,12 +1,17 @@
 sudo clear
-
 echo "==============================="
-echo "Installing Packages"
+echo "=       Updating Pacman       ="
+echo "==============================="
+
+sudo pacman -Syyu
+echo "==============================="
+echo "=     Installing Packages     ="
 echo "==============================="
 
 PACKAGES=(
     'git'
     'curl'
+    'geany'
     'wget'
     'zsh'
     'neovim'
@@ -15,6 +20,7 @@ PACKAGES=(
     'python'
     'yarn'
     'jre8-openjdk'
+    'w3m'
 )
 
 for PACKAGE in "${PACKAGES[@]}"; do
@@ -35,6 +41,13 @@ makepkg -si
 cd ..
 done
 
+echo "Installing: Oh My Zsh..."
+sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+echo "Installing: ZSH Plugins..."
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting 
+git clone https://github.com/zsh-users/zsh-autosuggestions $ZSH_CUSTOM/plugins/zsh-autosuggestions
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
 
 echo "Installing: tty-clock"
 git clone https://github.com/xorg62/tty-clock.git
@@ -67,6 +80,21 @@ echo '$HOME/.local/share/pacman.sh' >> ~/.zshrc
 echo "Installing: Salwyrr Launcher..."
 wget https://www.salwyrr.com/linux/install_salwyrr_launcher.sh -P ~/ && chmod +x ~/install_salwyrr_launcher.sh && ~/./install_salwyrr_launcher.sh
 
-cp -r .config ~/
+echo "Installing: kwin-tiling"
+git clone https://github.com/faho/kwin-tiling.git
+cd kwin-tiling
+plasmapkg2 --type kwinscript -i .
+cd ..
+
+echo "==============================="
+echo "=        Copying Files        ="
+echo "==============================="
+
+sudo cp -r .dotfiles ~/
+sudo cp -r neofetch ~/.config/
+sudo cp -r colorschemes_konsole ~/local/share/konsole/
+sudo cp -r images ~/Downloads
+
+
 
 echo "Installation Completed... System Ready to use"
