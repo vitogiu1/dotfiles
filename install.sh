@@ -96,6 +96,22 @@ sudo cp -r .dotfiles ~/
 sudo cp -r neofetch ~/.config/
 sudo cp -r colorschemes_konsole ~/local/share/konsole/
 sudo cp -r images ~/Downloads
+sudo cp -r .fonts ~/
+
+echo "==============================="
+echo "=      Installing Fonts       ="
+echo "==============================="
+
+git clone https://github.com/terroo/fonts -b fonts --single-branch
+cd fonts/fonts && mv $HOME/.local/share/
+fc-cache -fv
+
+echo "==============================="
+echo "=      Installing NVChad      ="
+echo "==============================="
+
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
 
 
 
