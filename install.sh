@@ -23,6 +23,8 @@ PACKAGES=(
     'w3m'
     'archlinux-keyring'
     'unzip'
+    'python-neovim'
+    'python-pip'
 )
 
 for PACKAGE in "${PACKAGES[@]}"; do
@@ -42,6 +44,41 @@ cd "${PACKAGE_AUR}"
 makepkg -si
 cd ..
 done
+
+
+echo "Installing: Salwyrr Launcher..."
+wget https://www.salwyrr.com/linux/install_salwyrr_launcher.sh -P ~/ && chmod +x ~/install_salwyrr_launcher.sh && ~/./install_salwyrr_launcher.sh
+
+echo "Installing: kwin-tiling"
+git clone https://github.com/faho/kwin-tiling.git
+cd kwin-tiling
+plasmapkg2 --type kwinscript -i .
+cd ..
+
+echo "==============================="
+echo "=        Copying Files        ="
+echo "==============================="
+
+sudo cp -r .dotfiles ~/
+sudo cp -r neofetch ~/.config/
+sudo cp -r colorschemes_konsole ~/local/share/konsole/
+sudo cp -r images ~/Downloads
+sudo cp -r .fonts ~/
+
+echo "==============================="
+echo "=      Installing Fonts       ="
+echo "==============================="
+
+git clone https://github.com/terroo/fonts -b fonts --single-branch
+cd fonts/fonts && mv $HOME/.local/share/
+fc-cache -fv
+
+echo "==============================="
+echo "=      Installing NVChad      ="
+echo "==============================="
+
+git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
+nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
 
 echo "Installing: Oh My Zsh..."
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -78,41 +115,6 @@ wget http://bit.ly/pacmansh -O pacman.sh
 chmod +x pacman.sh
 mv pacman.sh ~/.local/share/
 echo '$HOME/.local/share/pacman.sh' >> ~/.zshrc
-
-echo "Installing: Salwyrr Launcher..."
-wget https://www.salwyrr.com/linux/install_salwyrr_launcher.sh -P ~/ && chmod +x ~/install_salwyrr_launcher.sh && ~/./install_salwyrr_launcher.sh
-
-echo "Installing: kwin-tiling"
-git clone https://github.com/faho/kwin-tiling.git
-cd kwin-tiling
-plasmapkg2 --type kwinscript -i .
-cd ..
-
-echo "==============================="
-echo "=        Copying Files        ="
-echo "==============================="
-
-sudo cp -r .dotfiles ~/
-sudo cp -r neofetch ~/.config/
-sudo cp -r colorschemes_konsole ~/local/share/konsole/
-sudo cp -r images ~/Downloads
-sudo cp -r .fonts ~/
-
-echo "==============================="
-echo "=      Installing Fonts       ="
-echo "==============================="
-
-git clone https://github.com/terroo/fonts -b fonts --single-branch
-cd fonts/fonts && mv $HOME/.local/share/
-fc-cache -fv
-
-echo "==============================="
-echo "=      Installing NVChad      ="
-echo "==============================="
-
-git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1
-nvim +'hi NormalFloat guibg=#1e222a' +PackerSync
-
 
 
 echo "Installation Completed... System Ready to use"
