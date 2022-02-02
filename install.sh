@@ -22,6 +22,7 @@ PACKAGES=(
     'jre8-openjdk'
     'w3m'
     'archlinux-keyring'
+    'unzip'
 )
 
 for PACKAGE in "${PACKAGES[@]}"; do
