@@ -190,6 +190,22 @@ local plugins = {
    },
 
    {
+     'akinsho/toggleterm.nvim',
+   },
+
+   {
+    'nvim-telescope/telescope.nvim',
+    requires = {{'nvim-lua/plenary.nvim'}},
+    cmd = "Telescope",
+    config = "require('telescope-config')"
+   },
+
+   {'folke/which-key.nvim', event = "BufWinEnter", config = "require('whichkey-config')"},
+
+   {'glepnir/dashboard-nvim'}
+
+
+   {
       "glepnir/dashboard-nvim",
       disable = not plugin_settings.status.dashboard,
       config = override_req("dashboard", "plugins.configs.dashboard"),
