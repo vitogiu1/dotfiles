@@ -202,7 +202,7 @@ local plugins = {
 
    {'folke/which-key.nvim', event = "BufWinEnter", config = "require('whichkey-config')"},
 
-   {'glepnir/dashboard-nvim'}
+   {'glepnir/dashboard-nvim'},
 
 
    {
