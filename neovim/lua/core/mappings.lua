@@ -37,6 +37,10 @@ M.misc = function()
       map_wrapper("", "<Down>", 'v:count || mode(1)[0:1] == "no" ? "j" : "gj"', { expr = true })
       map_wrapper("", "<Up>", 'v:count || mode(1)[0:1] == "no" ? "k" : "gk"', { expr = true })
 
+      --my optional_mappings
+      
+      map("n", 'ft', ':ToggleTerm <CR>')
+
       -- use ESC to turn off search highlighting
       map_wrapper("n", "<Esc>", ":noh <CR>")
 
@@ -84,8 +88,8 @@ M.misc = function()
       map("n", maps.misc.cheatsheet, ":lua require('nvchad.cheatsheet').show() <CR>") -- show keybinds
       map("n", maps.misc.close_buffer, ":lua require('core.utils').close_buffer() <CR>") -- close  buffer
       map("n", maps.misc.copy_whole_file, ":%y+ <CR>") -- copy whole file content
-      map("v", maps.misc.copy_to_system_clipboard, "\"+y") 
-      map("n", maps.misc.copy_to_system_clipboard, "\"+yy") -- copy curent line in normal mode
+      map("v", maps.misc.copy_to_system_clipboard, '"+y')
+      map("n", maps.misc.copy_to_system_clipboard, '"+yy') -- copy curent line in normal mode
       map("n", maps.misc.new_buffer, ":enew <CR>") -- new buffer
       map("n", maps.misc.new_tab, ":tabnew <CR>") -- new tabs
       map("n", maps.misc.line_number_toggle, ":set nu! <CR>") -- toggle numbers
@@ -106,9 +110,6 @@ M.misc = function()
       map("n", term_maps.new_vertical, ":execute 'vnew +terminal' | let b:term_type = 'vert' | startinsert <CR>")
       map("n", term_maps.new_window, ":execute 'terminal' | let b:term_type = 'wind' | startinsert <CR>")
       -- terminal mappings end --
-      
-      -- Meus mapeamentos
-      map("n", "q", ":quit <CR>", opt)
 
       -- Add Packer commands because we are not loading it at startup
       cmd "silent! command PackerClean lua require 'plugins' require('packer').clean()"
