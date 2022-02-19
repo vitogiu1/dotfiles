@@ -181,6 +181,10 @@ local plugins = {
       config = override_req("nvim_autopairs", "plugins.configs.others", "autopairs"),
    },
 
+   {"github/copilot.vim", config = "require('copilot-config')"},
+
+   {"iamcco/markdown-preview.nvim"},
+
   {
      'andweeb/presence.nvim', 
      config = "require('presence-config')"
@@ -191,7 +195,7 @@ local plugins = {
  --     setup = function()
    --      require("core.mappings").dashboard()
   --   end,
-},
+      },
 
       {'sheerun/vim-polyglot'},
       {'edersonferreira/dalton-vim'},
