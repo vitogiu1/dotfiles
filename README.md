@@ -4,6 +4,8 @@
 
 ---
 
+## `🌌 Specs`
+
 Components | Packages / Programs
 --- | --- |
 **Linux Distro**          | [`Arch Linux`](https://archlinux.org)
@@ -13,6 +15,11 @@ Components | Packages / Programs
 **Shell**                 | [`zsh`](https://www.zsh.org/) [`ohmyzsh`](https://ohmyz.sh/)
 **Resolution**            | `1366 x 768`
 
+🌌 Neovim Components | Specs
+--- | --- |
+**Theme**          | [`Dracula`](https://draculatheme.com/)
+**Pre-Config**     | [`NvChad`](https://nvchad.github.io/)
+**AI**             | [`Github Copilot`](https://copilot.github.com)
 ---
 
 ## `💖 Installation`
