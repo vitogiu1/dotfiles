@@ -52,7 +52,6 @@ cd donut
 sudo mv donut ~/.local/share/
 
 echo 'alias donut="$HOME/.local/share/donut"' >> ~/.zshrc
-source ~/.zshrc
 cd ..
 
 
@@ -111,7 +110,6 @@ sudo make install
 mv pipes.sh ~/.local/share/
 
 echo 'alias pipes="$HOME/.local/share/pipes.sh"' >> ~/.zshrc
-source ~/.zshrc
 cd ..
 
 echo "Installing: colorssh"
@@ -119,7 +117,6 @@ wget http://bit.ly/colorssh -O colors.sh
 chmod +x colors.sh
 mv colors.sh ~/.local/share/
 echo 'alias colors="$HOME/.local/share/colors.sh"' >> ~/.zshrc
-source ~/.zshrc
 
 echo "Installing: pacman.sh"
 wget http://bit.ly/pacmansh -O pacman.sh
@@ -127,5 +124,6 @@ chmod +x pacman.sh
 mv pacman.sh ~/.local/share/
 echo '$HOME/.local/share/pacman.sh' >> ~/.zshrc
 
-
 echo "Installation Completed... System Ready to use"
+
+source ~/.zshrc
