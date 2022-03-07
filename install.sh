@@ -45,6 +45,16 @@ makepkg -si
 cd ..
 done
 
+echo "==============================="
+echo "=      Installing Donut       ="
+echo "==============================="
+cd donut
+sudo mv donut ~/.local/share/
+
+echo 'alias donut="$HOME/.local/share/donut"' >> ~/.zshrc
+source ~/.zshrc
+cd ..
+
 
 echo "Installing: Salwyrr Launcher..."
 wget https://www.salwyrr.com/linux/install_salwyrr_launcher.sh -P ~/ && chmod +x ~/install_salwyrr_launcher.sh && ~/./install_salwyrr_launcher.sh
@@ -99,6 +109,7 @@ git clone https://github.com/pipeseroni/pipes.sh.git
 cd pipes.sh
 sudo make install
 mv pipes.sh ~/.local/share/
+
 echo 'alias pipes="$HOME/.local/share/pipes.sh"' >> ~/.zshrc
 source ~/.zshrc
 cd ..
